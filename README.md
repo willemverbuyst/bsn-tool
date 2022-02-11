@@ -2,7 +2,7 @@
 
 # What is this?
 
-Fun little project with vanilla JS using the [bsn-js](https://www.npmjs.com/package/bsn-js) npm package.
+Fun little project using the [bsn-js](https://www.npmjs.com/package/bsn-js) npm package.
 
 ### On the page you can:
 
