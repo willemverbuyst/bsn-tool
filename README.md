@@ -1,4 +1,4 @@
-[![Publish to GitHub Pages](https://github.com/willemverbuyst/bsn-tool/actions/workflows/publish-to-gh-pages.yml/badge.svg)](https://github.com/willemverbuyst/bsn-tool/actions/workflows/publish-to-gh-pages.yml)
+[![Publish to GitHub Pages](https://github.com/willemverbuyst/bsn-tool/actions/workflows/publish-to-gh-pages.yml/badge.svg)](https://github.com/willemverbuyst/bsn-tool/actions/workflows/publish-to-gh-pages.yml) [![End-to-end tests](https://github.com/willemverbuyst/bsn-tool/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/willemverbuyst/bsn-tool/actions/workflows/e2e-test.yml)
 
 # What is this?
 
