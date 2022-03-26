@@ -1,12 +1,12 @@
 import { generateBSN, isValidBSN } from 'bsn-js'
 
-function BSNtool() {
+const BSNtool = () => {
 	const bsnNumber = document.getElementById('bsn-number')
 	const feedback = document.getElementById('feedback')
 	const bsnGeneratorBtn = document.getElementById('bsn-generator-btn')
 	const bsnValidatorBtn = document.getElementById('bsn-validator-btn')
 
-	function validateBSN(inputValue) {
+	const validateBSN = inputValue => {
 		const isValid = isValidBSN(inputValue)
 
 		if (inputValue !== '' && !isValid) {
