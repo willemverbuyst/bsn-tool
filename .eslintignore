@@ -3,3 +3,6 @@ dist
 .cache
 .eslintcache
 .parcel-cache
+
+.css
+.html

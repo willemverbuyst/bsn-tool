@@ -1,49 +1,50 @@
-import { generateBSN, isValidBSN } from 'bsn-js'
-;(function BSNtool() {
-	const bsnNumber = document.getElementById('bsn-number')
-	const feedback = document.getElementById('feedback')
-	const bsnGeneratorBtn = document.getElementById('bsn-generator-btn')
-	const bsnValidatorBtn = document.getElementById('bsn-validator-btn')
+import { generateBSN, isValidBSN } from 'bsn-js';
 
-	function validateBSN(inputValue) {
-		const isValid = isValidBSN(inputValue)
+(function BSNtool() {
+  const bsnNumber = document.getElementById('bsn-number');
+  const feedback = document.getElementById('feedback');
+  const bsnGeneratorBtn = document.getElementById('bsn-generator-btn');
+  const bsnValidatorBtn = document.getElementById('bsn-validator-btn');
 
-		if (inputValue !== '' && !isValid) {
-			feedback.textContent = 'this bsn is not valid'
-			feedback.style.opacity = '100'
-			feedback.style.color = 'red'
-		} else if (inputValue !== '' && isValid) {
-			feedback.textContent = 'this is a valid bsn'
-			feedback.style.opacity = '100'
-			feedback.style.color = 'green'
-		} else {
-			feedback.textContent = 'placeholder'
-			feedback.style.opacity = '0'
-		}
-	}
+  function validateBSN(inputValue) {
+    const isValid = isValidBSN(inputValue);
 
-	bsnGeneratorBtn.addEventListener('click', function () {
-		const newBSN = generateBSN()
+    if (inputValue !== '' && !isValid) {
+      feedback.textContent = 'this bsn is not valid';
+      feedback.style.opacity = '100';
+      feedback.style.color = 'red';
+    } else if (inputValue !== '' && isValid) {
+      feedback.textContent = 'this is a valid bsn';
+      feedback.style.opacity = '100';
+      feedback.style.color = 'green';
+    } else {
+      feedback.textContent = 'placeholder';
+      feedback.style.opacity = '0';
+    }
+  }
 
-		feedback.textContent = 'placeholder'
-		feedback.style.opacity = '0'
-		bsnNumber.value = newBSN
-	})
+  bsnGeneratorBtn.addEventListener('click', () => {
+    const newBSN = generateBSN();
 
-	bsnValidatorBtn.addEventListener('click', function () {
-		const inputValue = bsnNumber.value.trim()
-		validateBSN(inputValue)
-	})
+    feedback.textContent = 'placeholder';
+    feedback.style.opacity = '0';
+    bsnNumber.value = newBSN;
+  });
 
-	bsnNumber.addEventListener('input', function () {
-		feedback.textContent = 'placeholder'
-		feedback.style.opacity = '0'
-	})
+  bsnValidatorBtn.addEventListener('click', () => {
+    const inputValue = bsnNumber.value.trim();
+    validateBSN(inputValue);
+  });
 
-	bsnNumber.addEventListener('keypress', function (e) {
-		if (e.key === 'Enter') {
-			const inputValue = bsnNumber.value.trim()
-			validateBSN(inputValue)
-		}
-	})
-})()
+  bsnNumber.addEventListener('input', () => {
+    feedback.textContent = 'placeholder';
+    feedback.style.opacity = '0';
+  });
+
+  bsnNumber.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      const inputValue = bsnNumber.value.trim();
+      validateBSN(inputValue);
+    }
+  });
+}());
