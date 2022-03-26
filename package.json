@@ -7,7 +7,8 @@
 		"build": "parcel build src/index.html --public-url ./",
 		"format:fix": "prettier --config .prettierrc \"src/*.*\" --write",
 		"lint": "eslint .",
-		"lint:fix": "eslint --fix ."
+		"lint:fix": "eslint --fix .",
+		"prepare": "husky install"
 	},
 	"author": "Willem Verbuyst",
 	"license": "ISC",
@@ -20,7 +21,12 @@
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-import": "^2.25.4",
 		"eslint-plugin-prettier": "^4.0.0",
+		"husky": "^7.0.4",
+		"lint-staged": "^12.3.7",
 		"parcel": "^2.3.0",
 		"prettier": "^2.5.1"
+	},
+	"lint-staged": {
+		"*.js": "eslint --cache --fix"
 	}
 }
