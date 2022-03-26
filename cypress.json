@@ -1,1 +1,8 @@
-{}
+{
+	"baseUrl": "http://localhost:1234",
+	"defaultCommandTimeout": 5000,
+	"pageLoadTimeout": 10000,
+	"testFiles": ["**/*.spec.js"],
+	"video": false,
+	"waitForAnimations": true
+}
