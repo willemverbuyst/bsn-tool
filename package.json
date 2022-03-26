@@ -10,7 +10,8 @@
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",
 		"prepare": "husky install",
-		"start": "parcel ./src/index.html"
+		"start": "parcel ./src/index.html",
+		"test:e2e:run": "start-server-and-test start http://localhost:1234 cy:run"
 	},
 	"author": "Willem Verbuyst",
 	"license": "ISC",
@@ -28,7 +29,8 @@
 		"husky": "^7.0.4",
 		"lint-staged": "^12.3.7",
 		"parcel": "^2.3.0",
-		"prettier": "^2.5.1"
+		"prettier": "^2.5.1",
+		"start-server-and-test": "^1.14.0"
 	},
 	"lint-staged": {
 		"src/*.js": "eslint --cache --fix",

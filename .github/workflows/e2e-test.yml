@@ -11,6 +11,6 @@ jobs:
         with:
           browser: chrome
           headless: true
-          build: npm run generate
-          start: npm run start
+          build: npm run build
+          start: npm run test:e2e:run
           wait-on: 'http://localhost:1234'
