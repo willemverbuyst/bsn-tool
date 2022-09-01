@@ -24,7 +24,7 @@
 		"eslint-plugin-cypress": "^2.12.1",
 		"eslint-plugin-import": "^2.25.4",
 		"eslint-plugin-prettier": "^4.0.0",
-		"husky": "^7.0.4",
+		"husky": "^8.0.1",
 		"lint-staged": "^13.0.3",
 		"parcel": "^2.7.0",
 		"prettier": "^2.7.1",
