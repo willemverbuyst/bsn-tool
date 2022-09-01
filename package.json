@@ -27,7 +27,7 @@
 		"husky": "^7.0.4",
 		"lint-staged": "^13.0.3",
 		"parcel": "^2.3.0",
-		"prettier": "^2.5.1",
+		"prettier": "^2.7.1",
 		"start-server-and-test": "^1.14.0"
 	},
 	"lint-staged": {
