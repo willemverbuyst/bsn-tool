@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - directory: /
+    package-ecosystem: 'npm'
+    schedule:
+      interval: 'monthly'
+      time: '04:00'
+    ignore:
+      - dependency-name: 'cypress'
+        update-types:
+          ['version-update:semver-minor', 'version-update:semver-patch']
