@@ -7,5 +7,4 @@ updates:
       time: '04:00'
     ignore:
       - dependency-name: 'cypress'
-        update-types:
-          ['version-update:semver-minor', 'version-update:semver-patch']
+        update-types: ['version-update:semver-major']
