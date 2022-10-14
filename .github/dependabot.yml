@@ -5,6 +5,3 @@ updates:
     schedule:
       interval: 'monthly'
       time: '04:00'
-    ignore:
-      - dependency-name: 'cypress'
-        update-types: ['version-update:semver-major']
