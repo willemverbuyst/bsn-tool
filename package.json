@@ -1,37 +1,39 @@
 {
-	"name": "bsn-tool",
-	"version": "1.0.0",
-	"source": "src/index.html",
-	"scripts": {
-		"build": "parcel build src/index.html --public-url ./",
-		"cy:open": "cypress open",
-		"cy:run": "cypress run",
-		"format:fix": "prettier --config .prettierrc \"src/*.*\" --write",
-		"lint": "eslint .",
-		"lint:fix": "eslint --fix .",
-		"prepare": "husky install",
-		"start": "parcel ./src/index.html",
-		"test:e2e:run": "start-server-and-test start http://localhost:1234 cy:run"
-	},
-	"author": "Willem Verbuyst",
-	"license": "ISC",
-	"devDependencies": {
-		"bsn-js": "^1.0.4",
-		"cypress": "^10.11.0",
-		"eslint": "^8.28.0",
-		"eslint-config-airbnb-base": "^15.0.0",
-		"eslint-config-prettier": "^8.5.0",
-		"eslint-plugin-cypress": "^2.12.1",
-		"eslint-plugin-import": "^2.26.0",
-		"eslint-plugin-prettier": "^4.2.1",
-		"husky": "^8.0.2",
-		"lint-staged": "^13.0.3",
-		"parcel": "^2.7.0",
-		"prettier": "^2.8.0",
-		"start-server-and-test": "^1.14.0"
-	},
-	"lint-staged": {
-		"src/*.js": "eslint --cache --fix",
-		"cypress/**/*.js": "eslint --cache --fix"
-	}
+  "name": "bsn-tool",
+  "version": "1.0.0",
+  "source": "src/index.html",
+  "scripts": {
+    "build": "parcel build src/index.html --public-url ./",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "format:fix": "prettier --config .prettierrc \"src/*.*\" --write",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "prepare": "husky install",
+    "start": "parcel ./src/index.html",
+    "test:e2e:run": "start-server-and-test start http://localhost:1234 cy:run"
+  },
+  "author": "Willem Verbuyst",
+  "license": "ISC",
+  "dependencies": {
+    "bsn-js": "^1.0.4"
+  },
+  "devDependencies": {
+    "cypress": "^10.11.0",
+    "eslint": "^8.28.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.3",
+    "parcel": "^2.7.0",
+    "prettier": "^2.8.0",
+    "start-server-and-test": "^1.14.0"
+  },
+  "lint-staged": {
+    "src/*.js": "eslint --cache --fix",
+    "cypress/**/*.js": "eslint --cache --fix"
+  }
 }
