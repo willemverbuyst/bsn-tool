@@ -83,3 +83,30 @@ button:hover {
 button:active {
   box-shadow: inset 1px 1px 3px #cbced1, inset -1px -1px 3px #fff;
 }
+
+.bsn-number {
+  position: relative;
+}
+
+#bsn-number__copy-button {
+  all: revert;
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background-color: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+#bsn-number__copy-icon {
+  font-size: 2rem;
+  color: rgba(4, 77, 140, 0.6);
+  background-color: #f3f3f3;
+}
+
+#bsn-number__copy-icon:hover {
+  color: rgba(4, 77, 140);
+}
