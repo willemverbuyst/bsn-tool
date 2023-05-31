@@ -83,3 +83,7 @@ button:hover {
 button:active {
   box-shadow: inset 1px 1px 3px #cbced1, inset -1px -1px 3px #fff;
 }
+
+#bsn-number__copy-icon {
+  all: revert;
+}
