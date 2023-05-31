@@ -11,6 +11,10 @@
       href="https://fonts.googleapis.com/css2?family=Kanit&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -23,9 +27,11 @@
         <div class="button-container">
           <button id="bsn-generator-btn" type="button">generate BSN</button>
         </div>
-        <div>
+        <div class="bsn-number">
           <input type="text" name="bsn-number" id="bsn-number" />
-          <button id="bsn-number__copy-icon">copy</button>
+          <button id="bsn-number__copy-button">
+            <i class="fa fa-copy" id="bsn-number__copy-icon"></i>
+          </button>
         </div>
         <div class="button-container">
           <button id="bsn-validator-btn" type="button">validate BSN</button>

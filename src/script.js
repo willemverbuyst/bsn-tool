@@ -5,7 +5,7 @@ const BSNtool = () => {
   const feedback = document.getElementById("feedback");
   const bsnGeneratorBtn = document.getElementById("bsn-generator-btn");
   const bsnValidatorBtn = document.getElementById("bsn-validator-btn");
-  const copyIcon = document.getElementById("bsn-number__copy-icon");
+  const copyButton = document.getElementById("bsn-number__copy-button");
 
   const validateBSN = (inputValue) => {
     const isValid = isValidBSN(inputValue);
@@ -49,7 +49,7 @@ const BSNtool = () => {
     }
   });
 
-  copyIcon.addEventListener("click", () => {
+  copyButton.addEventListener("click", () => {
     navigator.clipboard.writeText(bsnNumber.value);
   });
 };
