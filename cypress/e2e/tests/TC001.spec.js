@@ -6,7 +6,7 @@ describe("page bsn tool", () => {
   });
 
   it("displays title BSN-tool", () => {
-    cy.get(".title").contains("BSN-tool");
+    cy.get("h1").contains("BSN-tool");
   });
 
   it('has a "generate BSN" button', () => {
