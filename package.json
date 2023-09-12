@@ -6,6 +6,7 @@
     "build": "parcel build src/index.html --public-url ./",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
+    "format:check": "prettier --config .prettierrc --check \"src/*.*\"",
     "format:fix": "prettier --config .prettierrc \"src/*.*\" --write",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",

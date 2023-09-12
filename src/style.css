@@ -54,7 +54,9 @@ input {
   margin-bottom: 3rem;
   margin-top: 3rem;
   border-radius: 3rem;
-  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+  box-shadow:
+    inset 8px 8px 8px #cbced1,
+    inset -8px -8px 8px #fff;
   text-align: center;
 }
 
@@ -72,16 +74,22 @@ button {
   font-family: inherit;
   color: #044d8c;
   background-color: #f3f3f3;
-  box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #fff;
+  box-shadow:
+    3px 3px 8px #b1b1b1,
+    -3px -3px 8px #fff;
   transition: 0.5s;
 }
 
 button:hover {
-  box-shadow: 2px 2px 5px #b1b1b1, -2px -2px 5px #fff;
+  box-shadow:
+    2px 2px 5px #b1b1b1,
+    -2px -2px 5px #fff;
 }
 
 button:active {
-  box-shadow: inset 1px 1px 3px #cbced1, inset -1px -1px 3px #fff;
+  box-shadow:
+    inset 1px 1px 3px #cbced1,
+    inset -1px -1px 3px #fff;
 }
 
 .bsn-number {
