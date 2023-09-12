@@ -22,7 +22,7 @@ body {
   text-align: center;
 }
 
-.container {
+main {
   margin: auto;
   width: 100vw;
   height: 100vh;
@@ -31,7 +31,11 @@ body {
   flex-direction: column;
 }
 
-.title {
+section {
+  padding: 1rem;
+}
+
+header {
   margin-top: 5vh;
   background: #666666;
   background: -webkit-linear-gradient(to right, #666666 0%, #b8b8b8 100%);
@@ -92,7 +96,7 @@ button:active {
     inset -1px -1px 3px #fff;
 }
 
-.bsn-number {
+section div {
   position: relative;
 }
 
@@ -117,4 +121,16 @@ button:active {
 
 #bsn-number__copy-icon:hover {
   color: rgba(4, 77, 140);
+}
+
+form section:nth-child(2) {
+  position: relative;
+}
+
+form section:nth-child(2) #feedback {
+  width: 100%;
+  position: absolute;
+  bottom: -5;
+  left: 50%;
+  transform: translateX(-50%);
 }
