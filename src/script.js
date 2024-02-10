@@ -1,54 +1,6 @@
-/* eslint-disable max-classes-per-file */
 import { generateBSN, isValidBSN } from "bsn-js";
-
-class CopyButton {
-  button = document.getElementById("bsn-number__copy-button");
-
-  copyIcon = document.getElementById("bsn-number__copy-icon");
-
-  hide() {
-    this.copyIcon.classList.replace("fa-check", "fa-copy");
-    this.button.style.display = "none";
-  }
-
-  display() {
-    this.copyIcon.classList.replace("fa-check", "fa-copy");
-    this.button.style.display = "block";
-  }
-
-  displayCheckMark() {
-    this.copyIcon.classList.replace("fa-copy", "fa-check");
-    this.button.style.display = "block";
-  }
-
-  listen(bsnNumber) {
-    this.button.addEventListener("click", () => {
-      this.displayCheckMark();
-      navigator.clipboard.writeText(bsnNumber.value);
-    });
-  }
-}
-
-class Feedback {
-  feedback = document.getElementById("feedback");
-
-  displayNotValid() {
-    this.feedback.textContent = "this bsn is not valid";
-    this.feedback.style.opacity = "100";
-    this.feedback.style.color = "red";
-  }
-
-  displayValid() {
-    this.feedback.textContent = "this is a valid bsn";
-    this.feedback.style.opacity = "100";
-    this.feedback.style.color = "green";
-  }
-
-  reset() {
-    this.feedback.textContent = "placeholder";
-    this.feedback.style.opacity = "0";
-  }
-}
+import CopyButton from "./CopyButton";
+import Feedback from "./Feedback";
 
 const BSNtool = () => {
   const bsnNumber = document.getElementById("bsn-number");

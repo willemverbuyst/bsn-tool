@@ -2,6 +2,7 @@
   "name": "bsn-tool",
   "version": "1.0.0",
   "source": "src/index.html",
+  "type": "module",
   "scripts": {
     "build": "parcel build src/index.html --public-url ./",
     "cy:open": "cypress open",
