@@ -111,16 +111,18 @@ section div {
   padding: 0;
   margin: 0;
   cursor: pointer;
+  display: none;
 }
 
 #bsn-number__copy-icon {
   font-size: 2rem;
-  color: rgba(4, 77, 140, 0.6);
+  color: #666666;
   background-color: #f3f3f3;
+  transition: 0.3s;
 }
 
 #bsn-number__copy-icon:hover {
-  color: rgba(4, 77, 140);
+  transform: scale(1.1);
 }
 
 form section:nth-child(2) {
