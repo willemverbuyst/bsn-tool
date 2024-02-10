@@ -45,7 +45,7 @@ describe("page bsn tool", () => {
   it("should hide copy button when input has changed", () => {
     cy.get("#bsn-number").type("999999023");
     cy.get("#bsn-validator-btn").click();
-    cy.get("#bsn-number__copy-button").should("exist");
+    cy.get("#bsn-number__copy-button").should("be.visible");
     cy.get("#bsn-number").type("555");
     cy.get("#bsn-number__copy-button").should("not.be.visible");
   });
