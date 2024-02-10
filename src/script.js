@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 import { generateBSN, isValidBSN } from "bsn-js";
 
 class CopyButton {
@@ -28,33 +29,48 @@ class CopyButton {
   }
 }
 
+class Feedback {
+  feedback = document.getElementById("feedback");
+
+  displayNotValid() {
+    this.feedback.textContent = "this bsn is not valid";
+    this.feedback.style.opacity = "100";
+    this.feedback.style.color = "red";
+  }
+
+  displayValid() {
+    this.feedback.textContent = "this is a valid bsn";
+    this.feedback.style.opacity = "100";
+    this.feedback.style.color = "green";
+  }
+
+  reset() {
+    this.feedback.textContent = "placeholder";
+    this.feedback.style.opacity = "0";
+  }
+}
+
 const BSNtool = () => {
   const bsnNumber = document.getElementById("bsn-number");
-  const feedback = document.getElementById("feedback");
   const bsnGeneratorBtn = document.getElementById("bsn-generator-btn");
   const bsnValidatorBtn = document.getElementById("bsn-validator-btn");
   const copyButton = new CopyButton();
+  const feedback = new Feedback();
 
   function updateFeedbackStylesAfterValidation(inputValue, isValid) {
     if (inputValue !== "" && !isValid) {
-      feedback.textContent = "this bsn is not valid";
-      feedback.style.opacity = "100";
-      feedback.style.color = "red";
+      feedback.displayNotValid();
     } else if (inputValue !== "" && isValid) {
-      feedback.textContent = "this is a valid bsn";
-      feedback.style.opacity = "100";
-      feedback.style.color = "green";
+      feedback.displayValid();
     } else {
-      feedback.textContent = "placeholder";
-      feedback.style.opacity = "0";
+      feedback.reset();
     }
   }
 
   bsnGeneratorBtn.addEventListener("click", () => {
-    const newBSN = generateBSN();
+    feedback.reset();
 
-    feedback.textContent = "placeholder";
-    feedback.style.opacity = "0";
+    const newBSN = generateBSN();
     bsnNumber.value = newBSN;
 
     copyButton.display();
@@ -63,6 +79,7 @@ const BSNtool = () => {
   bsnValidatorBtn.addEventListener("click", () => {
     const inputValue = bsnNumber.value.trim();
     const isValid = isValidBSN(inputValue);
+
     updateFeedbackStylesAfterValidation(inputValue, isValid);
 
     if (isValid) {
@@ -71,9 +88,7 @@ const BSNtool = () => {
   });
 
   bsnNumber.addEventListener("input", () => {
-    feedback.textContent = "placeholder";
-    feedback.style.opacity = "0";
-
+    feedback.reset();
     copyButton.hide();
   });
 
