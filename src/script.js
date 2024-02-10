@@ -8,24 +8,33 @@ const BSNtool = () => {
   const copyButton = document.getElementById("bsn-number__copy-button");
   const copyIcon = document.getElementById("bsn-number__copy-icon");
 
-  function updateStylesAfterValidation(inputValue, isValid) {
+  function displayCopyButton() {
+    copyIcon.classList.replace("fa-check", "fa-copy");
+    copyButton.style.display = "block";
+  }
+
+  function hideCopyButton() {
+    copyIcon.classList.replace("fa-check", "fa-copy");
+    copyButton.style.display = "none";
+  }
+
+  function displayCheckMark() {
+    copyIcon.classList.replace("fa-copy", "fa-check");
+    copyButton.style.display = "block";
+  }
+
+  function updateFeedbackStylesAfterValidation(inputValue, isValid) {
     if (inputValue !== "" && !isValid) {
       feedback.textContent = "this bsn is not valid";
       feedback.style.opacity = "100";
       feedback.style.color = "red";
-      copyIcon.classList.replace("fa-check", "fa-copy");
-      copyButton.style.display = "none";
     } else if (inputValue !== "" && isValid) {
       feedback.textContent = "this is a valid bsn";
       feedback.style.opacity = "100";
       feedback.style.color = "green";
-      copyIcon.classList.replace("fa-check", "fa-copy");
-      copyButton.style.display = "block";
     } else {
       feedback.textContent = "placeholder";
       feedback.style.opacity = "0";
-      copyIcon.classList.replace("fa-check", "fa-copy");
-      copyButton.style.display = "none";
     }
   }
 
@@ -35,32 +44,41 @@ const BSNtool = () => {
     feedback.textContent = "placeholder";
     feedback.style.opacity = "0";
     bsnNumber.value = newBSN;
-    copyIcon.classList.replace("fa-check", "fa-copy");
-    copyButton.style.display = "block";
+
+    displayCopyButton();
   });
 
   bsnValidatorBtn.addEventListener("click", () => {
     const inputValue = bsnNumber.value.trim();
     const isValid = isValidBSN(inputValue);
-    updateStylesAfterValidation(inputValue, isValid);
+    updateFeedbackStylesAfterValidation(inputValue, isValid);
+
+    if (isValid) {
+      displayCopyButton();
+    }
   });
 
   bsnNumber.addEventListener("input", () => {
     feedback.textContent = "placeholder";
     feedback.style.opacity = "0";
-    copyButton.style.display = "none";
+
+    hideCopyButton();
   });
 
   bsnNumber.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       const inputValue = bsnNumber.value.trim();
       const isValid = isValidBSN(inputValue);
-      updateStylesAfterValidation(inputValue, isValid);
+      updateFeedbackStylesAfterValidation(inputValue, isValid);
+
+      if (isValid) {
+        displayCopyButton();
+      }
     }
   });
 
   copyButton.addEventListener("click", () => {
-    copyIcon.classList.replace("fa-copy", "fa-check");
+    displayCheckMark();
     navigator.clipboard.writeText(bsnNumber.value);
   });
 };
