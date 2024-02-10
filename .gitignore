@@ -3,3 +3,4 @@ dist
 .cache
 .eslintcache
 .parcel-cache
+cypress/downloads
