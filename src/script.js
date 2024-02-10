@@ -1,27 +1,39 @@
 import { generateBSN, isValidBSN } from "bsn-js";
 
+class CopyButton {
+  button = document.getElementById("bsn-number__copy-button");
+
+  copyIcon = document.getElementById("bsn-number__copy-icon");
+
+  hide() {
+    this.copyIcon.classList.replace("fa-check", "fa-copy");
+    this.button.style.display = "none";
+  }
+
+  display() {
+    this.copyIcon.classList.replace("fa-check", "fa-copy");
+    this.button.style.display = "block";
+  }
+
+  displayCheckMark() {
+    this.copyIcon.classList.replace("fa-copy", "fa-check");
+    this.button.style.display = "block";
+  }
+
+  listen(bsnNumber) {
+    this.button.addEventListener("click", () => {
+      this.displayCheckMark();
+      navigator.clipboard.writeText(bsnNumber.value);
+    });
+  }
+}
+
 const BSNtool = () => {
   const bsnNumber = document.getElementById("bsn-number");
   const feedback = document.getElementById("feedback");
   const bsnGeneratorBtn = document.getElementById("bsn-generator-btn");
   const bsnValidatorBtn = document.getElementById("bsn-validator-btn");
-  const copyButton = document.getElementById("bsn-number__copy-button");
-  const copyIcon = document.getElementById("bsn-number__copy-icon");
-
-  function displayCopyButton() {
-    copyIcon.classList.replace("fa-check", "fa-copy");
-    copyButton.style.display = "block";
-  }
-
-  function hideCopyButton() {
-    copyIcon.classList.replace("fa-check", "fa-copy");
-    copyButton.style.display = "none";
-  }
-
-  function displayCheckMark() {
-    copyIcon.classList.replace("fa-copy", "fa-check");
-    copyButton.style.display = "block";
-  }
+  const copyButton = new CopyButton();
 
   function updateFeedbackStylesAfterValidation(inputValue, isValid) {
     if (inputValue !== "" && !isValid) {
@@ -45,7 +57,7 @@ const BSNtool = () => {
     feedback.style.opacity = "0";
     bsnNumber.value = newBSN;
 
-    displayCopyButton();
+    copyButton.display();
   });
 
   bsnValidatorBtn.addEventListener("click", () => {
@@ -54,7 +66,7 @@ const BSNtool = () => {
     updateFeedbackStylesAfterValidation(inputValue, isValid);
 
     if (isValid) {
-      displayCopyButton();
+      copyButton.display();
     }
   });
 
@@ -62,7 +74,7 @@ const BSNtool = () => {
     feedback.textContent = "placeholder";
     feedback.style.opacity = "0";
 
-    hideCopyButton();
+    copyButton.hide();
   });
 
   bsnNumber.addEventListener("keypress", (e) => {
@@ -72,15 +84,12 @@ const BSNtool = () => {
       updateFeedbackStylesAfterValidation(inputValue, isValid);
 
       if (isValid) {
-        displayCopyButton();
+        copyButton.display();
       }
     }
   });
 
-  copyButton.addEventListener("click", () => {
-    displayCheckMark();
-    navigator.clipboard.writeText(bsnNumber.value);
-  });
+  copyButton.listen(bsnNumber);
 };
 
 BSNtool();
