@@ -1,13 +1,13 @@
-name: End-to-end tests
-on: [push]
+name: e2e tests
+on: [pull_request]
 jobs:
   cypress-run:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
           start: npm run start
-          wait-on: 'http://localhost:1234'
+          wait-on: "http://localhost:1234"
