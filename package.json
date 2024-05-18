@@ -4,7 +4,7 @@
   "source": "src/index.html",
   "type": "module",
   "scripts": {
-    "build": "parcel build src/index.html --public-url ./",
+    "build": "parcel build src/index.html --public-url ./ && cp robots.txt dist/robots.txt",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "format:check": "prettier --config .prettierrc --check \"src/*.*\"",
