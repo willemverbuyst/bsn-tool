@@ -18,7 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "bsn-js": "^1.0.4",
-    "cypress": "^13.11.0"
+    "cypress": "^13.13.2"
   },
   "devDependencies": {
     "cypress-real-events": "^1.12.0",
