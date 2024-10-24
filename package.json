@@ -12,7 +12,8 @@
     "lint:fix": "eslint --fix .",
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "type:check": "tsc --noEmit"
   },
   "author": "Willem Verbuyst",
   "license": "ISC",
