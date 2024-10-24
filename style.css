@@ -132,7 +132,7 @@ form section:nth-child(2) {
 form section:nth-child(2) #feedback {
   width: 100%;
   position: absolute;
-  bottom: -5;
+  bottom: -5%;
   left: 50%;
   transform: translateX(-50%);
 }
