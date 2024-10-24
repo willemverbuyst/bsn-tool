@@ -4,14 +4,15 @@
   "source": "src/index.html",
   "type": "module",
   "scripts": {
-    "build": "parcel build src/index.html --public-url ./ && cp robots.txt dist/robots.txt",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "format:check": "prettier --config .prettierrc --check \"src/*.*\"",
     "format:fix": "prettier --config .prettierrc \"src/*.*\" --write",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "start": "parcel ./src/index.html"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "author": "Willem Verbuyst",
   "license": "ISC",
@@ -25,6 +26,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "parcel": "^2.12.0",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "vite": "^5.4.10"
   }
 }
