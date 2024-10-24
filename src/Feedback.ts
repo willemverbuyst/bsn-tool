@@ -1,5 +1,5 @@
 export default class Feedback {
-  feedback = document.getElementById("feedback");
+  feedback = <HTMLParagraphElement>document.getElementById("feedback");
 
   displayNotValid() {
     this.feedback.textContent = "this bsn is not valid";
