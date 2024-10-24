@@ -6,7 +6,7 @@ export default defineConfig({
   video: false,
   waitForAnimations: true,
   e2e: {
-    baseUrl: "http://localhost:1234",
+    baseUrl: "http://localhost:5173",
     specPattern: "cypress/e2e/**/*.spec.js",
   },
 });

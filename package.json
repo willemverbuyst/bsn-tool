@@ -4,27 +4,29 @@
   "source": "src/index.html",
   "type": "module",
   "scripts": {
-    "build": "parcel build src/index.html --public-url ./ && cp robots.txt dist/robots.txt",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "format:check": "prettier --config .prettierrc --check \"src/*.*\"",
     "format:fix": "prettier --config .prettierrc \"src/*.*\" --write",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "start": "parcel ./src/index.html"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "author": "Willem Verbuyst",
   "license": "ISC",
   "dependencies": {
     "bsn-js": "^1.0.4",
-    "cypress": "^13.13.2"
+    "cypress": "^13.15.0"
   },
   "devDependencies": {
     "cypress-real-events": "^1.13.0",
-    "eslint": "^9.8.0",
+    "eslint": "^9.11.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "parcel": "^2.12.0",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "vite": "^5.4.10"
   }
 }
