@@ -1,7 +1,8 @@
 export default class CopyButton {
-  button = document.getElementById("bsn-number__copy-button");
-
-  copyIcon = document.getElementById("bsn-number__copy-icon");
+  button = <HTMLButtonElement>(
+    document.getElementById("bsn-number__copy-button")
+  );
+  copyIcon = <HTMLSpanElement>document.getElementById("bsn-number__copy-icon");
 
   hide() {
     this.copyIcon.classList.replace("fa-check", "fa-copy");
@@ -18,7 +19,7 @@ export default class CopyButton {
     this.button.style.display = "block";
   }
 
-  listen(bsnNumber) {
+  listen(bsnNumber: HTMLInputElement) {
     this.button.addEventListener("click", () => {
       this.displayCheckMark();
       navigator.clipboard.writeText(bsnNumber.value);
