@@ -1,11 +1,14 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import BsnNumber from "./BsnNumber";
 import CopyButton from "./CopyButton";
+import Feedback from "./Feedback";
 
 describe("CopyButton", () => {
   let copyButton: CopyButton;
   let button: HTMLButtonElement;
   let copyIcon: HTMLSpanElement;
-  let bsnNumber: HTMLInputElement;
+  let bsnNumber: BsnNumber;
+  let feedback: Feedback;
 
   beforeEach(() => {
     document.body.innerHTML = `
@@ -28,9 +31,10 @@ describe("CopyButton", () => {
     copyIcon = <HTMLSpanElement>(
       document.getElementById("bsn-number__copy-icon")
     );
-    bsnNumber = <HTMLInputElement>document.getElementById("bsn-number");
 
     copyButton = new CopyButton();
+    feedback = new Feedback();
+    bsnNumber = new BsnNumber(feedback, copyButton);
   });
 
   it("should hide the button and set the correct icon class", () => {
