@@ -6,9 +6,8 @@ export default class CopyButton {
   );
   copyIcon = <HTMLSpanElement>document.getElementById("bsn-number__copy-icon");
 
-  hide() {
+  removeCheckMark() {
     this.copyIcon.classList.replace("fa-check", "fa-copy");
-    this.button.style.display = "none";
   }
 
   display() {

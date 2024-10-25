@@ -13,7 +13,7 @@ export default class BsnNumber {
   onInput() {
     this.bsnNumber.addEventListener("input", () => {
       this.feedback.reset();
-      this.copyButton.hide();
+      this.copyButton.removeCheckMark();
     });
   }
 
