@@ -30,4 +30,24 @@ describe("Feedback", () => {
     expect(feedbackElement.textContent).toBe("placeholder");
     expect(feedbackElement.style.opacity).toBe("0");
   });
+
+  it('should display "this bsn is not valid" when update is called with non-empty input and isValid is false', () => {
+    feedback.update("12345", false);
+    expect(feedbackElement.textContent).toBe("this bsn is not valid");
+    expect(feedbackElement.style.opacity).toBe("100");
+    expect(feedbackElement.style.color).toBe("red");
+  });
+
+  it('should display "this is a valid bsn" when update is called with non-empty input and isValid is true', () => {
+    feedback.update("12345", true);
+    expect(feedbackElement.textContent).toBe("this is a valid bsn");
+    expect(feedbackElement.style.opacity).toBe("100");
+    expect(feedbackElement.style.color).toBe("green");
+  });
+
+  it("should reset the feedback element when update is called with empty input", () => {
+    feedback.update("", false);
+    expect(feedbackElement.textContent).toBe("placeholder");
+    expect(feedbackElement.style.opacity).toBe("0");
+  });
 });
