@@ -1,33 +1,19 @@
-import { isValidBSN } from "bsn-js";
 import BsnGeneratorBtn from "./BsnGeneratorButton";
 import BsnNumber from "./BsnNumber";
+import BsnValidatorBtn from "./BsnValidatorButton";
 import CopyButton from "./CopyButton";
 import Feedback from "./Feedback";
 
-const BSNtool = () => {
-  const bsnValidatorBtn = <HTMLButtonElement>(
-    document.getElementById("bsn-validator-btn")
-  );
+const BsnTool = () => {
   const copyButton = new CopyButton();
   const feedback = new Feedback();
   const bsnNumber = new BsnNumber(feedback, copyButton);
-
   const bsnGeneratorBtn = new BsnGeneratorBtn(feedback, copyButton, bsnNumber);
+  const bsnValidatorBtn = new BsnValidatorBtn(feedback, copyButton, bsnNumber);
 
   bsnGeneratorBtn.onClick();
-
-  bsnValidatorBtn.addEventListener("click", () => {
-    const inputValue = bsnNumber && bsnNumber?.value.trim();
-    const isValid = isValidBSN(inputValue);
-
-    feedback.update(inputValue, isValid);
-
-    if (isValid) {
-      copyButton.display();
-    }
-  });
-
+  bsnValidatorBtn.onClick();
   copyButton.listen(bsnNumber);
 };
 
-BSNtool();
+BsnTool();
