@@ -1,9 +1,9 @@
 import { generateBSN, isValidBSN } from "bsn-js";
+import BsnNumber from "./BsnNumber";
 import CopyButton from "./CopyButton";
 import Feedback from "./Feedback";
 
 const BSNtool = () => {
-  const bsnNumber = <HTMLInputElement>document.getElementById("bsn-number");
   const bsnGeneratorBtn = <HTMLButtonElement>(
     document.getElementById("bsn-generator-btn")
   );
@@ -12,6 +12,7 @@ const BSNtool = () => {
   );
   const copyButton = new CopyButton();
   const feedback = new Feedback();
+  const bsnNumber = new BsnNumber(feedback, copyButton);
 
   bsnGeneratorBtn.addEventListener("click", () => {
     feedback.reset();
@@ -30,23 +31,6 @@ const BSNtool = () => {
 
     if (isValid) {
       copyButton.display();
-    }
-  });
-
-  bsnNumber.addEventListener("input", () => {
-    feedback.reset();
-    copyButton.hide();
-  });
-
-  bsnNumber.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      const inputValue = bsnNumber.value.trim();
-      const isValid = isValidBSN(inputValue);
-      feedback.update(inputValue, isValid);
-
-      if (isValid) {
-        copyButton.display();
-      }
     }
   });
 

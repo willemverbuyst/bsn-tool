@@ -1,3 +1,5 @@
+import BsnNumber from "./BsnNumber";
+
 export default class CopyButton {
   button = <HTMLButtonElement>(
     document.getElementById("bsn-number__copy-button")
@@ -19,7 +21,7 @@ export default class CopyButton {
     this.button.style.display = "block";
   }
 
-  listen(bsnNumber: HTMLInputElement) {
+  listen(bsnNumber: BsnNumber) {
     this.button.addEventListener("click", () => {
       this.displayCheckMark();
       navigator.clipboard.writeText(bsnNumber.value);
