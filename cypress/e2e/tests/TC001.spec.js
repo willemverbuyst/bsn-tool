@@ -35,18 +35,18 @@ describe("page bsn tool", () => {
     cy.get("#bsn-number__copy-icon").should("have.class", "fa fa-copy");
   });
 
-  it("should display checkmark icon when copy button has been clicked", () => {
+  it("should display check mark icon when copy button has been clicked", () => {
     cy.get("#bsn-number").type("999999023");
     cy.get("#bsn-validator-btn").click();
     cy.get("#bsn-number__copy-button").realClick();
     cy.get("#bsn-number__copy-icon").should("have.class", "fa fa-check");
   });
 
-  it("should hide copy button when input has changed", () => {
+  it("should remove check mark when input has changed", () => {
     cy.get("#bsn-number").type("999999023");
     cy.get("#bsn-validator-btn").click();
     cy.get("#bsn-number__copy-button").should("be.visible");
     cy.get("#bsn-number").type("555");
-    cy.get("#bsn-number__copy-button").should("not.be.visible");
+    cy.get("#bsn-number__copy-icon").should("have.class", "fa fa-copy");
   });
 });

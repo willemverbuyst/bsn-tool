@@ -1,11 +1,13 @@
+import BsnNumber from "./BsnNumber";
+
 export default class CopyButton {
-  button = document.getElementById("bsn-number__copy-button");
+  button = <HTMLButtonElement>(
+    document.getElementById("bsn-number__copy-button")
+  );
+  copyIcon = <HTMLSpanElement>document.getElementById("bsn-number__copy-icon");
 
-  copyIcon = document.getElementById("bsn-number__copy-icon");
-
-  hide() {
+  removeCheckMark() {
     this.copyIcon.classList.replace("fa-check", "fa-copy");
-    this.button.style.display = "none";
   }
 
   display() {
@@ -18,7 +20,7 @@ export default class CopyButton {
     this.button.style.display = "block";
   }
 
-  listen(bsnNumber) {
+  listen(bsnNumber: BsnNumber) {
     this.button.addEventListener("click", () => {
       this.displayCheckMark();
       navigator.clipboard.writeText(bsnNumber.value);
