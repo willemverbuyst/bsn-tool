@@ -24,14 +24,12 @@ describe("CopyButton", () => {
         </button>
       </div>
     `;
-
     button = <HTMLButtonElement>(
       document.getElementById("bsn-number__copy-button")
     );
     copyIcon = <HTMLSpanElement>(
       document.getElementById("bsn-number__copy-icon")
     );
-
     copyButton = new CopyButton();
     feedback = new Feedback();
     bsnNumber = new BsnNumber(feedback, copyButton);

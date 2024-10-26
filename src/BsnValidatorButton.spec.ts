@@ -20,13 +20,9 @@ describe("BsnValidatorBtn", () => {
     buttonElement = document.getElementById(
       "bsn-validator-btn",
     ) as HTMLButtonElement;
-
     feedback = { update: vi.fn() } as unknown as Feedback;
-
     copyButton = { display: vi.fn() } as unknown as CopyButton;
-
     bsnNumber = { value: "" } as unknown as BsnNumber;
-
     new BsnValidatorBtn(feedback, copyButton, bsnNumber);
   });
 

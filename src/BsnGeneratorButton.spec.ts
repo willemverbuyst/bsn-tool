@@ -20,19 +20,15 @@ describe("BsnGeneratorBtn", () => {
     buttonElement = document.getElementById(
       "bsn-generator-btn",
     ) as HTMLButtonElement;
-
     feedback = {
       reset: vi.fn(),
     } as unknown as Feedback;
-
     copyButton = {
       display: vi.fn(),
     } as unknown as CopyButton;
-
     bsnNumber = {
       value: "",
     } as unknown as BsnNumber;
-
     new BsnGeneratorBtn(feedback, copyButton, bsnNumber);
   });
 
