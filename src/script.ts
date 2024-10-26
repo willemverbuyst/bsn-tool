@@ -4,7 +4,7 @@ import BsnValidatorBtn from "./BsnValidatorButton";
 import CopyButton from "./CopyButton";
 import Feedback from "./Feedback";
 
-const BsnTool = () => {
+export const startBsnTool = () => {
   const copyButton = new CopyButton();
   const feedback = new Feedback();
   const bsnNumber = new BsnNumber(feedback, copyButton);
@@ -15,4 +15,4 @@ const BsnTool = () => {
   copyButton.listen(bsnNumber);
 };
 
-BsnTool();
+startBsnTool();
