@@ -12,9 +12,7 @@ export default class BsnGeneratorBtn {
     private feedback: Feedback,
     private copyButton: CopyButton,
     private bsnNumber: BsnNumber,
-  ) {}
-
-  onClick() {
+  ) {
     this.bsnGeneratorBtn.addEventListener("click", () => {
       this.feedback.reset();
 

@@ -12,9 +12,7 @@ export default class BsnValidatorBtn {
     private feedback: Feedback,
     private copyButton: CopyButton,
     private bsnNumber: BsnNumber,
-  ) {}
-
-  onClick() {
+  ) {
     this.bsnValidatorBtn.addEventListener("click", () => {
       const inputValue = this.bsnNumber?.value.trim();
       const isValid = isValidBSN(inputValue);

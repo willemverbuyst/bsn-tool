@@ -8,9 +8,7 @@ export default class BsnNumber {
   constructor(
     private feedback: Feedback,
     private copyButton: CopyButton,
-  ) {}
-
-  onInput() {
+  ) {
     this.bsnNumber.addEventListener("input", () => {
       this.feedback.reset();
       this.copyButton.removeCheckMark();

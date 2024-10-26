@@ -8,12 +8,10 @@ const BsnTool = () => {
   const copyButton = new CopyButton();
   const feedback = new Feedback();
   const bsnNumber = new BsnNumber(feedback, copyButton);
-  const bsnGeneratorBtn = new BsnGeneratorBtn(feedback, copyButton, bsnNumber);
-  const bsnValidatorBtn = new BsnValidatorBtn(feedback, copyButton, bsnNumber);
 
-  bsnNumber.onInput();
-  bsnGeneratorBtn.onClick();
-  bsnValidatorBtn.onClick();
+  new BsnGeneratorBtn(feedback, copyButton, bsnNumber);
+  new BsnValidatorBtn(feedback, copyButton, bsnNumber);
+
   copyButton.listen(bsnNumber);
 };
 
