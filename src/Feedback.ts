@@ -17,4 +17,14 @@ export default class Feedback {
     this.feedback.textContent = "placeholder";
     this.feedback.style.opacity = "0";
   }
+
+  update(inputValue: string, isValid: boolean) {
+    if (inputValue !== "" && !isValid) {
+      this.displayNotValid();
+    } else if (inputValue !== "" && isValid) {
+      this.displayValid();
+    } else {
+      this.reset();
+    }
+  }
 }

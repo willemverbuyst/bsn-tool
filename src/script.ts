@@ -1,69 +1,18 @@
-import { generateBSN, isValidBSN } from "bsn-js";
+import BsnGeneratorBtn from "./BsnGeneratorButton";
+import BsnNumber from "./BsnNumber";
+import BsnValidatorBtn from "./BsnValidatorButton";
 import CopyButton from "./CopyButton";
 import Feedback from "./Feedback";
 
-const BSNtool = () => {
-  const bsnNumber = <HTMLInputElement>document.getElementById("bsn-number");
-  const bsnGeneratorBtn = <HTMLButtonElement>(
-    document.getElementById("bsn-generator-btn")
-  );
-  const bsnValidatorBtn = <HTMLButtonElement>(
-    document.getElementById("bsn-validator-btn")
-  );
+export const startBsnTool = () => {
   const copyButton = new CopyButton();
   const feedback = new Feedback();
+  const bsnNumber = new BsnNumber(feedback, copyButton);
 
-  function updateFeedbackStylesAfterValidation(
-    inputValue: string,
-    isValid: boolean,
-  ) {
-    if (inputValue !== "" && !isValid) {
-      feedback.displayNotValid();
-    } else if (inputValue !== "" && isValid) {
-      feedback.displayValid();
-    } else {
-      feedback.reset();
-    }
-  }
-
-  bsnGeneratorBtn.addEventListener("click", () => {
-    feedback.reset();
-
-    const newBSN = generateBSN();
-    bsnNumber.value = newBSN;
-
-    copyButton.display();
-  });
-
-  bsnValidatorBtn.addEventListener("click", () => {
-    const inputValue = bsnNumber && bsnNumber?.value.trim();
-    const isValid = isValidBSN(inputValue);
-
-    updateFeedbackStylesAfterValidation(inputValue, isValid);
-
-    if (isValid) {
-      copyButton.display();
-    }
-  });
-
-  bsnNumber.addEventListener("input", () => {
-    feedback.reset();
-    copyButton.hide();
-  });
-
-  bsnNumber.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      const inputValue = bsnNumber.value.trim();
-      const isValid = isValidBSN(inputValue);
-      updateFeedbackStylesAfterValidation(inputValue, isValid);
-
-      if (isValid) {
-        copyButton.display();
-      }
-    }
-  });
+  new BsnGeneratorBtn(feedback, copyButton, bsnNumber);
+  new BsnValidatorBtn(feedback, copyButton, bsnNumber);
 
   copyButton.listen(bsnNumber);
 };
 
-BSNtool();
+startBsnTool();

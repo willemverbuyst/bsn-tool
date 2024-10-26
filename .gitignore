@@ -1,6 +1,4 @@
 node_modules
 dist
-.cache
-.eslintcache
-.parcel-cache
+coverage
 cypress/downloads
