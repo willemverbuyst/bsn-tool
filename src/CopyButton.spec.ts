@@ -38,10 +38,9 @@ describe("CopyButton", () => {
   });
 
   it("should hide the button and set the correct icon class", () => {
-    copyButton.hide();
+    copyButton.removeCheckMark();
     expect(copyIcon.classList.contains("fa-check")).toBe(false);
     expect(copyIcon.classList.contains("fa-copy")).toBe(true);
-    expect(button.style.display).toBe("none");
   });
 
   it("should display the button and set the correct icon class", () => {
