@@ -1,0 +1,50 @@
+name: "🐛 Bug Report"
+description: "Report a reproducible bug or regression"
+title: "[BUG]"
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: synopsis
+    attributes:
+      label: What happened?
+      description: Describe the bug and add steps to reproduce
+      placeholder: |
+        Bug: ...
+        Step 1: ...
+        Step 2: ...
+    validations:
+      required: true
+  - type: textarea
+    id: expectation
+    attributes:
+      label: Expectation?
+      description: What did you expect to happen?
+      placeholder: It should...
+    validations:
+      required: true
+  - type: dropdown
+    id: section
+    attributes:
+      label: Section
+      description: On what branch does the bug exists?
+      options:
+        - main
+        - development
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: code
+    attributes:
+      label: Code
+      description: Please copy and paste any relevant code (no need to use backticks)
+      render: shell
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Please copy and paste any relevant screenshots
