@@ -1,0 +1,25 @@
+name: Type Check & Build
+
+on: [pull_request]
+
+jobs:
+  type-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm i
+      - name: Run TypeScript compiler
+        run: npm run type:check
+
+  build:
+    needs: type-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm i
+      - name: Build
+        run: npm run build

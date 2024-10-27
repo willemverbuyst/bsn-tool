@@ -1,0 +1,18 @@
+name: "🚀 Feature Request"
+description: "Submit a proposal/request for a new feature"
+title: "[FEATURE]"
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this feature request!
+  - type: textarea
+    id: synopsis
+    attributes:
+      label: What would you like to have added?
+      description: Describe the feature request
+      placeholder: |
+        Request: ...
+    validations:
+      required: true
