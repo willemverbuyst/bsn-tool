@@ -1,4 +1,4 @@
-name: format & lint
+name: Format & Lint
 
 on: [pull_request]
 
