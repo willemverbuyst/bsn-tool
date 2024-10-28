@@ -40,8 +40,8 @@ jobs:
 
             // Update the PR body based on whether one of the required labels is present
             const updatedBody = labelValid
-              ? pr.body.replace('- [ ] Added label to PR:', '- [x] Added label to PR:')
-              : pr.body.replace('- [x] Added label to PR:', '- [ ] Added label to PR:');
+              ? pr.body.replace('- [ ] Added label to PR', '- [x] Added label to PR')
+              : pr.body.replace('- [x] Added label to PR', '- [ ] Added label to PR');
 
             // Update the PR description
             await github.rest.pulls.update({
