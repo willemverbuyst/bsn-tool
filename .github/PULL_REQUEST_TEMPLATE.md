@@ -8,4 +8,4 @@
 
 ## Checklist
 
-- [ ] Added label
+- [ ] Added label to PR
