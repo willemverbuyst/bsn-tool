@@ -8,8 +8,7 @@ html {
 
 body {
   margin: 0;
-  font-size: 1.6em;
-  font-family: "Kanit", sans-serif;
+  font-family: Kanit, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
@@ -37,12 +36,9 @@ section {
 
 header {
   margin-top: 5vh;
-  background: #666666;
-  background: -webkit-linear-gradient(to right, #666666 0%, #b8b8b8 100%);
-  background: -moz-linear-gradient(to right, #666666 0%, #b8b8b8 100%);
-  background: linear-gradient(to right, #666666 0%, #b8b8b8 100%);
+  background: #666;
+  background: linear-gradient(to right, #666 0%, #b8b8b8 100%);
   background-clip: text;
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -53,7 +49,7 @@ input {
   outline: none;
   background: none;
   font-size: 2rem;
-  padding: 2rem 2rem;
+  padding: 2rem;
   color: inherit;
   margin-bottom: 3rem;
   margin-top: 3rem;
@@ -116,7 +112,7 @@ section div {
 
 #bsn-number__copy-icon {
   font-size: 2rem;
-  color: #666666;
+  color: #666;
   background-color: #f3f3f3;
   transition: 0.3s;
 }
