@@ -17,3 +17,6 @@ jobs:
       - name: Lint
         run: npm run lint
         working-directory: .
+      - name: Style Lint
+        run: npm run css:lint
+        working-directory: .
