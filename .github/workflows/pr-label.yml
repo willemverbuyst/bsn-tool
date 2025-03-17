@@ -1,0 +1,56 @@
+name: Check PR Label and Update PR Description
+
+on:
+  pull_request:
+    types:
+      - opened
+      - labeled
+      - unlabeled
+      - edited
+    branches:
+      - develop
+  workflow_dispatch:
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  check-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update PR description to check "Added label" box
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const requiredLabels = new Set(["fix", "change", "feature", "technical-change", "dependencies", "enhancement"]);
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            if (!context.payload.pull_request.number) { return; }
+            const prNumber = context.payload.pull_request.number;
+            const labels = context.payload.pull_request.labels.map(label => label.name);
+            const labelValid = labels.some(label => requiredLabels.has(label));
+
+            // Get the current PR body
+            const { data: pr } = await github.rest.pulls.get({
+              owner,
+              repo,
+              pull_number: prNumber,
+            });
+
+            // Update the PR body based on whether one of the required labels is present
+            const updatedBody = labelValid
+              ? pr.body.replace('- [ ] Added label to PR', '- [x] Added label to PR')
+              : pr.body.replace('- [x] Added label to PR', '- [ ] Added label to PR');
+
+            // Update the PR description
+            await github.rest.pulls.update({
+              owner,
+              repo,
+              pull_number: prNumber,
+              body: updatedBody,
+            });
+
+            if (!labelValid) {
+              core.setFailed(`This PR is missing one of the required labels: ${[...requiredLabels].join(', ')}`);
+            }

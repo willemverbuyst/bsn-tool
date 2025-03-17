@@ -1,0 +1,18 @@
+name: "🔨 Refactor"
+description: "Submit a proposal/request for the refactor"
+title: "[REFACTOR]"
+labels: ["refactor"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this refactor proposal!
+  - type: textarea
+    id: synopsis
+    attributes:
+      label: What would you like to change?
+      description: Describe the refactor request
+      placeholder: |
+        Refactor: ...
+    validations:
+      required: true

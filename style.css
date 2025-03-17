@@ -8,8 +8,7 @@ html {
 
 body {
   margin: 0;
-  font-size: 1.6em;
-  font-family: "Kanit", sans-serif;
+  font-family: Kanit, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
@@ -24,8 +23,6 @@ body {
 
 main {
   margin: auto;
-  width: 100vw;
-  height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -37,12 +34,9 @@ section {
 
 header {
   margin-top: 5vh;
-  background: #666666;
-  background: -webkit-linear-gradient(to right, #666666 0%, #b8b8b8 100%);
-  background: -moz-linear-gradient(to right, #666666 0%, #b8b8b8 100%);
-  background: linear-gradient(to right, #666666 0%, #b8b8b8 100%);
+  background: #666;
+  background: linear-gradient(to right, #666 0%, #b8b8b8 100%);
   background-clip: text;
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -53,7 +47,7 @@ input {
   outline: none;
   background: none;
   font-size: 2rem;
-  padding: 2rem 2rem;
+  padding: 2rem;
   color: inherit;
   margin-bottom: 3rem;
   margin-top: 3rem;
@@ -107,7 +101,7 @@ section div {
   top: 50%;
   transform: translateY(-50%);
   border: none;
-  background-color: none;
+  background-color: transparent;
   padding: 0;
   margin: 0;
   cursor: pointer;
@@ -116,7 +110,7 @@ section div {
 
 #bsn-number__copy-icon {
   font-size: 2rem;
-  color: #666666;
+  color: #666;
   background-color: #f3f3f3;
   transition: 0.3s;
 }
@@ -135,4 +129,17 @@ form section:nth-child(2) #feedback {
   bottom: -5%;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.link {
+  display: flex;
+  justify-content: end;
+  padding: 1rem;
+
+  .icon__github {
+    background-image: linear-gradient(to right top, #cbced1, #044d8c);
+    background-clip: text;
+    color: transparent;
+    font-size: 4rem;
+  }
 }
