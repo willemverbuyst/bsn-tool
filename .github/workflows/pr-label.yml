@@ -7,6 +7,9 @@ on:
       - labeled
       - unlabeled
       - edited
+    branches:
+      - develop
+      - main
   workflow_dispatch:
 
 permissions:
