@@ -18,6 +18,7 @@ permissions:
 
 jobs:
   check-label:
+    name: PR Label
     runs-on: ubuntu-latest
     steps:
       - name: Update PR description to check "Added label" box
