@@ -1,7 +1,10 @@
-name: E2E Tests
-on: [pull_request]
+name: Tests
+on: 
+  pull_request:
+    branches: ["develop"]
 jobs:
-  cypress-run:
+  e2e-tests:
+    name: E2E
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -11,3 +14,9 @@ jobs:
         with:
           start: npm run dev
           wait-on: "http://localhost:5173"
+  unit-tests:
+    name: Unit
+    uses: ./.github/workflows/node-ci.yml
+    with:
+      run-command: |
+        npm run test:unit
