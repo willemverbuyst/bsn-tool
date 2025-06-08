@@ -1,7 +1,9 @@
 name: E2E Tests
-on: [pull_request]
+on: 
+  pull_request:
+    branches: ["develop"]
 jobs:
-  cypress-run:
+  e2e-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
