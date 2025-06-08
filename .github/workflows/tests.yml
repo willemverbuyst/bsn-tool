@@ -1,7 +1,7 @@
 name: Tests
 on: 
-  pull_request:
-    branches: ["develop"]
+  pull_request
+  
 jobs:
   e2e-tests:
     name: E2E
