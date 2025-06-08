@@ -1,4 +1,4 @@
-name: Dependabot
+name: Automate Dependabot
 
 on: pull_request
 
