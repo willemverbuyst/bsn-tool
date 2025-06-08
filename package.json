@@ -14,7 +14,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "type:check": "tsc --noEmit",
-    "test": "vitest",
+    "test:unit": "vitest",
     "test:silent": "vitest --silent",
     "test:coverage": "vitest --silent run --coverage",
     "knip": "knip",
