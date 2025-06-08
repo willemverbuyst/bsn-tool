@@ -10,11 +10,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build
-        uses: ./.github/workflows/node-ci.yml
-        with:
-          run-command: |
-            npm run build
+      - name: Install & Build
+        run: |
+          npm ci
+          npm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.7.3
