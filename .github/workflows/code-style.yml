@@ -1,0 +1,20 @@
+name: Code Style
+
+on: pull_request
+
+jobs:
+  format-and-lint:
+    name: Format & Lint
+    uses: ./.github/workflows/node-ci.yml
+    with:
+      run-command: |
+        npm run format:check
+        npm run lint
+        npm run css:lint
+  knip:
+    name: Knip
+    uses: ./.github/workflows/node-ci.yml
+    with:
+      run-command: |
+        npm run knip
+    
