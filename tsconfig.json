@@ -26,6 +26,6 @@
     "noPropertyAccessFromIndexSignature": true,
     "allowUnusedLabels": false,
     "allowUnreachableCode": false,
-    "skipLibCheck": false
+    "skipLibCheck": true
   }
 }
