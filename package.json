@@ -31,7 +31,7 @@
     "cypress-real-events": "^1.13.0",
     "eslint": "^9.31.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.3",
+    "eslint-plugin-prettier": "^5.5.4",
     "happy-dom": "^18.0.1",
     "knip": "^5.62.0",
     "prettier": "^3.6.2",
