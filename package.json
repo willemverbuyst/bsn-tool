@@ -33,7 +33,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "happy-dom": "^18.0.1",
-    "knip": "^5.62.0",
+    "knip": "^5.63.0",
     "prettier": "^3.6.2",
     "stylelint": "^16.22.0",
     "stylelint-config-standard": "^38.0.0",
