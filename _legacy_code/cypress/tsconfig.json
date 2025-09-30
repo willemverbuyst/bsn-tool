@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "allowJs": true,
-    "baseUrl": "../node_modules",
-    "outDir": "lib",
-    "types": ["cypress", "node", "cypress-real-events"],
-  },
-  "include": ["**/*.*"],
-}
