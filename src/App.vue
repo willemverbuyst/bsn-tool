@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import BsnGeneratorButton from "./components/BsnGeneratorButton.vue";
+import BsnValidatorButton from "./components/BsnValidatorButton.vue";
+import { store } from "./store";
+</script>
 
 <template>
   <section class="link">
@@ -18,7 +22,7 @@
   <main>
     <form autocomplete="off" onsubmit="return false;">
       <section>
-        <button id="bsn-generator-btn" type="button">generate BSN</button>
+        <BsnGeneratorButton />
       </section>
       <section>
         <div>
@@ -27,6 +31,7 @@
             name="bsn-number"
             id="bsn-number"
             aria-label="bsn-number"
+            v-model="store.bsn"
           />
           <button id="bsn-number__copy-button" type="button">
             <i class="fa fa-copy" id="bsn-number__copy-icon">COPY</i>
@@ -35,7 +40,7 @@
         <p id="feedback"></p>
       </section>
       <section>
-        <button id="bsn-validator-btn" type="button">validate BSN</button>
+        <BsnValidatorButton />
       </section>
     </form>
   </main>
