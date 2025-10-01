@@ -1,8 +1,10 @@
-<script setup></script>
+<script setup>
+defineProps(["title"]);
+</script>
 
 <template>
   <header>
-    <h1>BSN-tool</h1>
+    <h1>{{ title }}</h1>
   </header>
 </template>
 

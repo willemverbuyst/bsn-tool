@@ -8,7 +8,7 @@ import { store } from "./store";
 
 <template>
   <GithubLink />
-  <Header />
+  <Header title="BSN-tool" />
 
   <main>
     <form autocomplete="off" onsubmit="return false;">
