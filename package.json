@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format:check": "prettier --config .prettierrc --check \"src/*.*\""
   },
   "dependencies": {
     "bsn-js": "^1.0.4",
