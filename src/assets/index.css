@@ -32,14 +32,6 @@ section {
   padding: 1rem;
 }
 
-header {
-  margin-top: 5vh;
-  background: #666;
-  background: linear-gradient(to right, #666 0%, #b8b8b8 100%);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 input {
   min-width: 35rem;
   max-width: 90vw;
