@@ -1,9 +1,10 @@
 <script setup>
 import BsnInput from "./components/BsnInput.vue";
-import Button from "./components/Button.vue";
+import Feedback from "./components/Feedback.vue";
 import GithubLink from "./components/GithubLink.vue";
-import Header from "./components/Header.vue";
 import { store } from "./store";
+import Button from "./ui/Button.vue";
+import Header from "./ui/Header.vue";
 </script>
 
 <template>
@@ -17,6 +18,7 @@ import { store } from "./store";
       </section>
       <section>
         <BsnInput />
+        <Feedback />
       </section>
       <section>
         <Button caption="validate BSN" @handle-click="store.validateBsn()" />

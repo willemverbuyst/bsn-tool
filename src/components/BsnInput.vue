@@ -1,6 +1,5 @@
 <script setup>
 import { store } from "../store";
-import Feedback from "./Feedback.vue";
 </script>
 
 <template>
@@ -17,7 +16,6 @@ import Feedback from "./Feedback.vue";
       <i class="fa fa-copy" id="bsn-number__copy-icon">COPY</i>
     </button>
   </div>
-  <Feedback />
 </template>
 
 <style scoped></style>
