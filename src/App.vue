@@ -27,4 +27,27 @@ import Header from "./ui/Header.vue";
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+main {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+section {
+  padding: 1rem;
+}
+
+form section:nth-child(2) {
+  position: relative;
+}
+
+form section:nth-child(2) #feedback {
+  width: 100%;
+  position: absolute;
+  bottom: -5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+</style>
