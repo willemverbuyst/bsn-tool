@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  font-family: Kanit, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f3f3f3;
+  font-weight: 400;
+  overflow: hidden;
+  color: #044d8c;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+main {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+section {
+  padding: 1rem;
+}
+
+header {
+  margin-top: 5vh;
+  background: #666;
+  background: linear-gradient(to right, #666 0%, #b8b8b8 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+input {
+  min-width: 35rem;
+  max-width: 90vw;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 2rem;
+  padding: 2rem;
+  color: inherit;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  border-radius: 3rem;
+  box-shadow:
+    inset 8px 8px 8px #cbced1,
+    inset -8px -8px 8px #fff;
+  text-align: center;
+}
+
+button {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  min-width: 35rem;
+  max-width: 90vw;
+  height: 6rem;
+  border-radius: 3rem;
+  font-size: 2rem;
+  font-family: inherit;
+  color: #044d8c;
+  background-color: #f3f3f3;
+  box-shadow:
+    3px 3px 8px #b1b1b1,
+    -3px -3px 8px #fff;
+  transition: 0.5s;
+}
+
+button:hover {
+  box-shadow:
+    2px 2px 5px #b1b1b1,
+    -2px -2px 5px #fff;
+}
+
+button:active {
+  box-shadow:
+    inset 1px 1px 3px #cbced1,
+    inset -1px -1px 3px #fff;
+}
+
+section div {
+  position: relative;
+}
+
+#bsn-number__copy-button {
+  all: revert;
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: none;
+}
+
+#bsn-number__copy-icon {
+  font-size: 2rem;
+  color: #666;
+  background-color: #f3f3f3;
+  transition: 0.3s;
+}
+
+#bsn-number__copy-icon:hover {
+  transform: scale(1.1);
+}
+
+form section:nth-child(2) {
+  position: relative;
+}
+
+form section:nth-child(2) #feedback {
+  width: 100%;
+  position: absolute;
+  bottom: -5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.link {
+  display: flex;
+  justify-content: end;
+  padding: 1rem;
+
+  .icon__github {
+    background-image: linear-gradient(to right top, #cbced1, #044d8c);
+    background-clip: text;
+    color: transparent;
+    font-size: 4rem;
+  }
+}
