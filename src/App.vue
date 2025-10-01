@@ -1,7 +1,7 @@
 <script setup>
 import BsnGeneratorButton from "./components/BsnGeneratorButton.vue";
+import BsnInput from "./components/BsnInput.vue";
 import BsnValidatorButton from "./components/BsnValidatorButton.vue";
-import { store } from "./store";
 </script>
 
 <template>
@@ -25,19 +25,7 @@ import { store } from "./store";
         <BsnGeneratorButton />
       </section>
       <section>
-        <div>
-          <input
-            type="text"
-            name="bsn-number"
-            id="bsn-number"
-            aria-label="bsn-number"
-            v-model="store.bsn"
-          />
-          <button id="bsn-number__copy-button" type="button">
-            <i class="fa fa-copy" id="bsn-number__copy-icon">COPY</i>
-          </button>
-        </div>
-        <p id="feedback"></p>
+        <BsnInput />
       </section>
       <section>
         <BsnValidatorButton />
