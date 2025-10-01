@@ -32,8 +32,8 @@ input {
   margin-top: 3rem;
   border-radius: 3rem;
   box-shadow:
-    inset 8px 8px 8px #cbced1,
-    inset -8px -8px 8px #fff;
+    inset 8px 8px 8px var(--color-grey-light),
+    inset -8px -8px 8px var(--color-white);
   text-align: center;
 }
 
@@ -56,8 +56,8 @@ section div {
 
 #bsn-number__copy-icon {
   font-size: 2rem;
-  color: #666;
-  background-color: #f3f3f3;
+  color: var(--color-grey-dark);
+  background-color: var(--color-white-smoke);
   transition: 0.3s;
 }
 

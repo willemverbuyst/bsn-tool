@@ -11,8 +11,12 @@ defineProps(["title"]);
 <style scoped>
 header {
   margin-top: 5vh;
-  background: #666;
-  background: linear-gradient(to right, #666 0%, #b8b8b8 100%);
+  background: var(--color-grey-dark);
+  background: linear-gradient(
+    to right,
+    var(--color-grey-dark) 0%,
+    var(--color-grey-light) 100%
+  );
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }

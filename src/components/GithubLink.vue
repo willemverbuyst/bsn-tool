@@ -19,7 +19,11 @@
   padding: 1rem;
 
   .icon__github {
-    background-image: linear-gradient(to right top, #cbced1, #044d8c);
+    background-image: linear-gradient(
+      to right top,
+      var(--color-grey-light),
+      var(--color-font)
+    );
     background-clip: text;
     color: transparent;
     font-size: 4rem;

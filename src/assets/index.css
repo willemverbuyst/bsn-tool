@@ -1,3 +1,14 @@
+:root {
+  --color-font: #044d8c;
+  --color-font-valid: green;
+  --color-font-inValid: red;
+  --color-white: #fff;
+  --color-white-smoke: #f3f3f3;
+  --color-grey-light: #cbced1;
+  --color-grey-medium: #b1b1b1;
+  --color-grey-dark: #666;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -13,10 +24,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   width: 100vw;
-  background-color: #f3f3f3;
+  background-color: var(--color-white-smoke);
   font-weight: 400;
   overflow: hidden;
-  color: #044d8c;
+  color: var(--color-font);
   font-size: 1.4rem;
   text-align: center;
 }

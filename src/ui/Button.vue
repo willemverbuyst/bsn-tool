@@ -22,23 +22,23 @@ button {
   border-radius: 3rem;
   font-size: 2rem;
   font-family: inherit;
-  color: #044d8c;
-  background-color: #f3f3f3;
+  color: inherit;
+  background-color: var(--color-white-smoke);
   box-shadow:
-    3px 3px 8px #b1b1b1,
-    -3px -3px 8px #fff;
+    3px 3px 8px var(--color-grey-medium),
+    -3px -3px 8px var(--color-white);
   transition: 0.5s;
 }
 
 button:hover {
   box-shadow:
-    2px 2px 5px #b1b1b1,
-    -2px -2px 5px #fff;
+    2px 2px 5px var(--color-grey-medium),
+    -2px -2px 5px var(--color-white);
 }
 
 button:active {
   box-shadow:
-    inset 1px 1px 3px #cbced1,
-    inset -1px -1px 3px #fff;
+    inset 1px 1px 3px var(--color-grey-light),
+    inset -1px -1px 3px var(--color-white);
 }
 </style>
