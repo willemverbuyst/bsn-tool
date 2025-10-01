@@ -7,6 +7,8 @@ export const store = reactive({
   bsnHasBeenValidated: false,
   generateBsn() {
     this.bsn = generateBSN();
+    this.bsnIsValid = true;
+    this.bsnHasBeenValidated = false;
   },
   validateBsn() {
     this.bsnIsValid = isValidBSN(this.bsn.trim());
