@@ -1,9 +1,9 @@
 <script setup>
+import BsnGeneratorButton from "./components/BsnGeneratorButton.vue";
 import BsnInput from "./components/BsnInput.vue";
+import BsnValidatorButton from "./components/BsnValidatorButton.vue";
 import Feedback from "./components/Feedback.vue";
 import GithubLink from "./components/GithubLink.vue";
-import { store } from "./store";
-import Button from "./ui/Button.vue";
 import Header from "./ui/Header.vue";
 </script>
 
@@ -14,14 +14,14 @@ import Header from "./ui/Header.vue";
   <main>
     <form autocomplete="off" onsubmit="return false;">
       <section>
-        <Button caption="generate BSN" @handle-click="store.generateBsn()" />
+        <BsnGeneratorButton />
       </section>
       <section>
         <BsnInput />
         <Feedback />
       </section>
       <section>
-        <Button caption="validate BSN" @handle-click="store.validateBsn()" />
+        <BsnValidatorButton />
       </section>
     </form>
   </main>
