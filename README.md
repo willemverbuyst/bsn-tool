@@ -1,38 +1,16 @@
-# vue-rewrite
+# BSN Tool
 
-This template should help get you started developing with Vue 3 in Vite.
+[![Publish to GitHub Pages](https://github.com/willemverbuyst/bsn-tool/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/willemverbuyst/bsn-tool/actions/workflows/gh-pages.yml) [![CodeQL](https://github.com/willemverbuyst/bsn-tool/actions/workflows/code-ql.yml/badge.svg)](https://github.com/willemverbuyst/bsn-tool/actions/workflows/code-ql.yml) [![Code Style](https://github.com/willemverbuyst/bsn-tool/actions/workflows/code-style.yml/badge.svg)](https://github.com/willemverbuyst/bsn-tool/actions/workflows/code-style.yml) [![Code Compilation](https://github.com/willemverbuyst/bsn-tool/actions/workflows/code-compilation.yml/badge.svg)](https://github.com/willemverbuyst/bsn-tool/actions/workflows/code-compilation.yml) [![Tests](https://github.com/willemverbuyst/bsn-tool/actions/workflows/tests.yml/badge.svg)](https://github.com/willemverbuyst/bsn-tool/actions/workflows/tests.yml) [![Dependabot Updates](https://github.com/willemverbuyst/bsn-tool/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/willemverbuyst/bsn-tool/actions/workflows/dependabot/dependabot-updates) [![Automate Dependabot](https://github.com/willemverbuyst/bsn-tool/actions/workflows/automate-dependabot.yml/badge.svg)](https://github.com/willemverbuyst/bsn-tool/actions/workflows/automate-dependabot)
 
-## Recommended IDE Setup
+## What is this?
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Fun little project using the [bsn-js](https://www.npmjs.com/package/bsn-js) npm package.
 
-## Recommended Browser Setup
+[live](https://willemverbuyst.github.io/bsn-tool/)
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## On the page you can
 
-## Customize configuration
+- generate a test BSN (starting with '99999')
+- validate an existing BSN
 
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+![screenshot](./img/screenshot-bsn-tool.png)
