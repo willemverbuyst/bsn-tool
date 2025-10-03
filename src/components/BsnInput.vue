@@ -12,7 +12,7 @@ import { store } from "../store";
       v-model="store.bsn"
       @input="store.resetValidation()"
     />
-    <button v-if="store.bsnIsValid" id="bsn-number__copy-button" type="button">
+    <button v-if="store.bsnIsValid" aria-label="copy-button" type="button">
       <i class="fa fa-copy" id="bsn-number__copy-icon" />
     </button>
   </div>

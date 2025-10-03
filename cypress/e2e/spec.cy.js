@@ -9,44 +9,38 @@ describe("page bsn tool", () => {
     cy.get("h1").contains("BSN-tool");
   });
 
-  // it('has a "generate BSN" button', () => {
-  //   cy.get("#bsn-generator-btn").contains("generate BSN");
-  // });
+  it("should not display copy button when there is no input", () => {
+    cy.get('[aria-label="copy-button"]').should("not.exist");
+  });
 
-  // it('has a "validate BSN" button', () => {
-  //   cy.get("#bsn-validator-btn").contains("validate BSN");
-  // });
+  it("should display copy button when a valid bsn has been generated", () => {
+    cy.contains("generate BSN").click();
+    cy.get('[aria-label="copy-button"]').should("be.visible");
+  });
 
-  // it("has an input field for bsn numbers", () => {
-  //   cy.get("#bsn-number");
-  // });
+  it("should display feedback and copy button for a valid bsn", () => {
+    cy.get("input").type("999999023");
+    cy.contains("validate BSN").click();
+    cy.get('[aria-label="copy-button"]').should("be.visible");
+    cy.contains("this is a valid bsn").should("be.visible");
+  });
 
-  // it("should not display copy button when there is no input", () => {
-  //   cy.get("#bsn-number__copy-button").should("not.be.visible");
-  // });
+  it("should display feedback and not a copy button for an invalid bsn", () => {
+    cy.get("input").type("99999902334");
+    cy.contains("validate BSN").click();
+    cy.get('[aria-label="copy-button"]').should("not.exist");
+    cy.contains("this bsn is not valid").should("be.visible");
+  });
 
-  // it("should display copy button when a valid bsn has been generated", () => {
-  //   cy.get("#bsn-generator-btn").click();
-  //   cy.get("#bsn-number__copy-button").should("be.visible");
-  // });
-
-  // it("should display copy icon when copy button is visible", () => {
-  //   cy.get("#bsn-generator-btn").click();
-  //   cy.get("#bsn-number__copy-icon").should("have.class", "fa fa-copy");
-  // });
-
-  // it("should display check mark icon when copy button has been clicked", () => {
-  //   cy.get("#bsn-number").type("999999023");
-  //   cy.get("#bsn-validator-btn").click();
-  //   cy.get("#bsn-number__copy-button").realClick();
-  //   cy.get("#bsn-number__copy-icon").should("have.class", "fa fa-check");
-  // });
-
-  // it("should remove check mark when input has changed", () => {
-  //   cy.get("#bsn-number").type("999999023");
-  //   cy.get("#bsn-validator-btn").click();
-  //   cy.get("#bsn-number__copy-button").should("be.visible");
-  //   cy.get("#bsn-number").type("555");
-  //   cy.get("#bsn-number__copy-icon").should("have.class", "fa fa-copy");
-  // });
+  it("should update display feedback and copy button on change input", () => {
+    cy.contains("generate BSN").click();
+    cy.get('[aria-label="copy-button"]').should("be.visible");
+    cy.contains("validate BSN").click();
+    cy.contains("this is a valid bsn").should("be.visible");
+    cy.get("input").type("34");
+    cy.contains("this is a valid bsn").should("not.exist");
+    cy.get('[aria-label="copy-button"]').should("not.exist");
+    cy.contains("validate BSN").click();
+    cy.contains("this bsn is not valid").should("be.visible");
+  });
 });
