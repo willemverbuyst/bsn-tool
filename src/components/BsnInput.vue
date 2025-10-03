@@ -6,14 +6,14 @@ import { store } from "../store";
   <div>
     <input
       type="text"
-      name="bsn-number"
-      id="bsn-number"
-      aria-label="bsn-number"
+      name="bsn"
+      aria-label="bsn"
       v-model="store.bsn"
       @input="store.resetValidation()"
+      placeholder="enter bsn"
     />
     <button v-if="store.bsnIsValid" aria-label="copy-button" type="button">
-      <i class="fa fa-copy" id="bsn-number__copy-icon" />
+      <i class="fa fa-copy" id="bsn__copy-icon" />
     </button>
   </div>
 </template>
@@ -41,7 +41,7 @@ section div {
   position: relative;
 }
 
-#bsn-number__copy-button {
+button {
   all: revert;
   position: absolute;
   right: 2rem;
@@ -54,14 +54,14 @@ section div {
   cursor: pointer;
 }
 
-#bsn-number__copy-icon {
+#bsn__copy-icon {
   font-size: 2rem;
   color: var(--color-grey-dark);
   background-color: var(--color-white-smoke);
   transition: 0.3s;
 }
 
-#bsn-number__copy-icon:hover {
+#bsn__copy-icon:hover {
   transform: scale(1.1);
 }
 </style>
