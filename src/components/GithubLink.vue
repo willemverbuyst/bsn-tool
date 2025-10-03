@@ -7,8 +7,8 @@
       target="_blank"
       rel="noreferrer"
       aria-labelledby="gh-icon"
-      ><i class="fab fa-github icon__github">GH ICON</i></a
-    >
+      ><i class="fab fa-github icon__github"
+    /></a>
   </section>
 </template>
 

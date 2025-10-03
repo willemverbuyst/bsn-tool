@@ -13,7 +13,7 @@ import { store } from "../store";
       @input="store.resetValidation()"
     />
     <button v-if="store.bsnIsValid" id="bsn-number__copy-button" type="button">
-      <i class="fa fa-copy" id="bsn-number__copy-icon">COPY</i>
+      <i class="fa fa-copy" id="bsn-number__copy-icon" />
     </button>
   </div>
 </template>
