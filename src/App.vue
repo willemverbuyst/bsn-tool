@@ -2,9 +2,9 @@
 import BsnGeneratorButton from "./components/BsnGeneratorButton.vue";
 import BsnInput from "./components/BsnInput.vue";
 import BsnValidatorButton from "./components/BsnValidatorButton.vue";
-import Feedback from "./components/Feedback.vue";
+import Feedback from "./components/FeedbackMessage.vue";
 import GithubLink from "./components/GithubLink.vue";
-import Header from "./ui/Header.vue";
+import Header from "./ui/BSNToolHeader.vue";
 </script>
 
 <template>

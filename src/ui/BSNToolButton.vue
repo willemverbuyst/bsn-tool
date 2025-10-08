@@ -1,5 +1,10 @@
 <script setup>
-defineProps(["caption"]);
+defineProps({
+  caption: {
+    type: String,
+    required: true,
+  },
+});
 defineEmits(["handle-click"]);
 </script>
 

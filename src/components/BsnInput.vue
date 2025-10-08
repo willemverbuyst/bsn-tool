@@ -5,15 +5,15 @@ import { store } from "../store";
 <template>
   <div>
     <input
+      v-model="store.bsn"
       type="text"
       name="bsn"
       aria-label="bsn"
-      v-model="store.bsn"
-      @input="store.resetValidation()"
       placeholder="enter bsn"
+      @input="store.resetValidation()"
     />
     <button v-if="store.bsnIsValid" aria-label="copy-button" type="button">
-      <i class="fa fa-copy" id="bsn__copy-icon" />
+      <i id="bsn__copy-icon" class="fa fa-copy" />
     </button>
   </div>
 </template>

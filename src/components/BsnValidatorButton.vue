@@ -1,6 +1,6 @@
 <script setup>
 import { store } from "../store";
-import Button from "../ui/Button.vue";
+import Button from "../ui/BSNToolButton.vue";
 </script>
 
 <template>
