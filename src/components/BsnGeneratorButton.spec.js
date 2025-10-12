@@ -1,7 +1,5 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it, vi } from "vitest";
-import BsnGeneratorButton from "../components/BsnGeneratorButton.vue";
-import { store } from "../store";
 
 // Mock the store
 vi.mock("../store", () => ({
@@ -9,6 +7,9 @@ vi.mock("../store", () => ({
     generateBsn: vi.fn(),
   },
 }));
+
+import BsnGeneratorButton from "../components/BsnGeneratorButton.vue";
+import { store } from "../store";
 
 describe("BsnGeneratorButton.vue", () => {
   it("renders the button with correct caption", () => {

@@ -1,7 +1,5 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it, vi } from "vitest";
-import BsnValidatorButton from "../components/BsnValidatorButton.vue";
-import { store } from "../store";
 
 // Mock the store
 vi.mock("../store", () => ({
@@ -9,6 +7,9 @@ vi.mock("../store", () => ({
     validateBsn: vi.fn(),
   },
 }));
+
+import BsnValidatorButton from "../components/BsnValidatorButton.vue";
+import { store } from "../store";
 
 describe("BsnValidatorButton.vue", () => {
   it("renders the button with correct caption", () => {
