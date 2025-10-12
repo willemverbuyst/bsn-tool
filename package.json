@@ -23,7 +23,7 @@
   "license": "ISC",
   "dependencies": {
     "bsn-js": "^1.0.4",
-    "cypress": "^15.3.0"
+    "cypress": "^15.4.0"
   },
   "devDependencies": {
     "@types/node": "^24.6.2",
