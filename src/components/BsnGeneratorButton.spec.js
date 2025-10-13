@@ -1,7 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it, vi } from "vitest";
 
-// Mock the store
 vi.mock("../store", () => ({
   store: {
     generateBsn: vi.fn(),

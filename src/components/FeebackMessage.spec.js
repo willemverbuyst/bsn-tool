@@ -1,7 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-// We’ll mock the store import before importing the component
 vi.mock("../store", () => ({
   store: {
     bsn: "",
