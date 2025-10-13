@@ -1,5 +1,20 @@
 <script setup>
+import { ref } from "vue";
 import { store } from "../store";
+
+const isCopied = ref(false);
+
+const copyToClipboard = async () => {
+  try {
+    await navigator.clipboard.writeText(store.bsn);
+    isCopied.value = true;
+    setTimeout(() => {
+      isCopied.value = false;
+    }, 2000);
+  } catch (err) {
+    console.error("Failed to copy: ", err);
+  }
+};
 </script>
 
 <template>
@@ -12,8 +27,14 @@ import { store } from "../store";
       placeholder="enter bsn"
       @input="store.resetValidation()"
     />
-    <button v-if="store.bsnIsValid" aria-label="copy-button" type="button">
-      <i id="bsn__copy-icon" class="fa fa-copy" />
+    <button
+      v-if="store.bsnIsValid"
+      aria-label="copy-button"
+      type="button"
+      @click="copyToClipboard"
+    >
+      <i v-if="!isCopied" id="bsn__copy-icon" class="pi pi-copy" />
+      <i v-if="isCopied" id="bsn__copy-icon" class="pi pi-clipboard" />
     </button>
   </div>
 </template>

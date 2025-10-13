@@ -18,7 +18,8 @@
     "test:unit": "vitest"
   },
   "dependencies": {
-    "bsn-js": "^1.0.4"
+    "bsn-js": "^1.0.4",
+    "primeicons": "^7.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.1",
