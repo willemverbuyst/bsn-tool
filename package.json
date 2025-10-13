@@ -1,44 +1,40 @@
 {
-  "name": "bsn-tool",
-  "version": "1.0.0",
-  "source": "src/index.html",
+  "name": "vue-rewrite",
+  "version": "0.0.0",
+  "private": true,
   "type": "module",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "scripts": {
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "format:check": "prettier --config .prettierrc --check \"src/*.*\"",
-    "format:fix": "prettier --config .prettierrc \"src/*.*\" --write",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "type:check": "tsc --noEmit",
-    "test:unit": "vitest run",
-    "test:coverage": "vitest run --coverage",
+    "format:check": "prettier --config .prettierrc --check \"src/*.*\"",
+    "lint:check": "eslint .",
     "knip": "knip",
-    "css:lint": "stylelint \"**/*.css\""
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:unit": "vitest"
   },
-  "author": "Willem Verbuyst",
-  "license": "ISC",
   "dependencies": {
     "bsn-js": "^1.0.4",
-    "cypress": "^15.3.0"
+    "primeicons": "^7.0.0"
   },
   "devDependencies": {
-    "@types/node": "^24.6.2",
-    "@vitest/coverage-v8": "^3.2.4",
-    "cypress-real-events": "^1.15.0",
-    "eslint": "^9.36.0",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/test-utils": "^2.4.6",
+    "cypress": "^15.3.0",
+    "eslint": "^9.37.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.4",
-    "happy-dom": "^19.0.2",
-    "knip": "^5.64.3",
+    "eslint-plugin-vue": "^10.5.0",
+    "globals": "^16.4.0",
+    "jsdom": "^27.0.0",
+    "knip": "^5.64.2",
     "prettier": "^3.6.2",
-    "stylelint": "^16.24.0",
-    "stylelint-config-standard": "^39.0.1",
-    "typescript": "^5.9.3",
-    "vite": "^7.1.9",
-    "vitest": "^3.2.3"
+    "vite": "^7.1.7",
+    "vite-plugin-vue-devtools": "^8.0.2",
+    "vitest": "^3.2.4",
+    "vue": "^3.5.22"
   }
 }

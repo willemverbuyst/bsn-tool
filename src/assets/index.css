@@ -1,0 +1,33 @@
+:root {
+  --color-font: #044d8c;
+  --color-font-valid: green;
+  --color-font-inValid: red;
+  --color-white: #fff;
+  --color-white-smoke: #f3f3f3;
+  --color-grey-light: #cbced1;
+  --color-grey-medium: #b1b1b1;
+  --color-grey-dark: #666;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  font-family: Kanit, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--color-white-smoke);
+  font-weight: 400;
+  overflow: hidden;
+  color: var(--color-font);
+  font-size: 1.4rem;
+  text-align: center;
+}

@@ -28,7 +28,7 @@ jobs:
             const requiredLabels = new Set(["fix", "change", "feature", "technical-change", "dependencies", "enhancement"]);
             const owner = context.repo.owner;
             const repo = context.repo.repo;
-            if (!context.payload.pull_request.number) { return; }
+            if (!context.payload.pull_request || !context.payload.pull_request.number) { return; }
             const prNumber = context.payload.pull_request.number;
             const labels = context.payload.pull_request.labels.map(label => label.name);
             const labelValid = labels.some(label => requiredLabels.has(label));
