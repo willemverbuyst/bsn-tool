@@ -1,27 +1,17 @@
-import eslintPluginPrettier from "eslint-plugin-prettier";
+import eslintConfigPrettier from "eslint-config-prettier";
+import pluginVue from "eslint-plugin-vue";
+import globals from "globals";
 
 export default [
-  { ignores: ["dist/**/*"] },
+  ...pluginVue.configs["flat/recommended"],
   {
+    rules: {},
     languageOptions: {
+      sourceType: "module",
       globals: {
-        browser: true,
-        es2021: true,
-        "cypress/globals": true,
-      },
-      parserOptions: {
-        ecmaVersion: "latest",
-        sourceType: "module",
+        ...globals.browser,
       },
     },
-    rules: {
-      "no-console": "error",
-      "prettier/prettier": "error",
-    },
   },
-  {
-    plugins: {
-      prettier: eslintPluginPrettier,
-    },
-  },
+  eslintConfigPrettier,
 ];
