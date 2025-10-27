@@ -1,0 +1,28 @@
+name: Issue
+
+on:
+  issues:
+    types: [opened]
+
+permissions: write-all
+
+jobs:
+  comment-with-api:
+    name: Add comment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log issue url
+        run: echo "https://api.github.com/repos/${REPOSITORY_OWNER}/${REPOSITORY}/issues/${ISSUE_NUMBER}"
+      - name: Create comment with API
+        run: |
+          gh api -X POST \
+            https://api.github.com/repos/"${REPOSITORY_OWNER}"/"${REPOSITORY}"/issues/"${ISSUE_NUMBER}"/comments \
+            -f body='
+            Thanks ${{ github.event.issue.user.login }} for creating this issue :sparkles:
+            We will look into it :detective:
+            '
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPOSITORY_OWNER: ${{ github.event.repository.owner.login }}
+      REPOSITORY: ${{ github.event.repository.name }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
