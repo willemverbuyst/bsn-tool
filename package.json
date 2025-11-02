@@ -30,7 +30,7 @@
     "eslint-plugin-vue": "^10.5.1",
     "globals": "^16.4.0",
     "jsdom": "^27.0.1",
-    "knip": "^5.66.3",
+    "knip": "^5.66.4",
     "prettier": "^3.6.2",
     "vite": "^7.1.12",
     "vite-plugin-vue-devtools": "^8.0.3",
