@@ -29,7 +29,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-vue": "^10.5.1",
     "globals": "^16.5.0",
-    "jsdom": "^27.0.1",
+    "jsdom": "^27.1.0",
     "knip": "^5.66.4",
     "prettier": "^3.6.2",
     "vite": "^7.1.12",
