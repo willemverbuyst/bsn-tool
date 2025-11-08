@@ -6,7 +6,6 @@ on:
       version:
         description: "Version number (e.g. v1.0.1)"
         required: true
-        default: "v1.0.1"
 
 permissions:
   contents: write
@@ -17,18 +16,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout develop branch
         uses: actions/checkout@v4
         with:
+          ref: develop
           fetch-depth: 0
 
-      - name: Create Pull Request from develop → main
+      - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: "release/${{ github.event.inputs.version }}"
           base: main
-          head: develop
+          branch: release/${{ github.event.inputs.version }}
           title: "Release ${{ github.event.inputs.version }}"
           body: |
             This pull request merges **develop** into **main** for release ${{ github.event.inputs.version }}.
