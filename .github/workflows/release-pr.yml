@@ -1,0 +1,34 @@
+name: Create release PR from develop → main
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version number (e.g. v1.0.1)"
+        required: true
+        default: "v1.0.1"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-release-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create Pull Request from develop → main
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: "release/${{ github.event.inputs.version }}"
+          base: main
+          head: develop
+          title: "Release ${{ github.event.inputs.version }}"
+          body: |
+            This pull request merges **develop** into **main** for release ${{ github.event.inputs.version }}.
