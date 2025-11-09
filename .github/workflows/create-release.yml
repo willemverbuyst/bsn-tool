@@ -23,14 +23,30 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      # Optional: Determine the next version automatically
+      # Get the most recent tag (fallback to v0.0.0 if none exist)
       - name: Get latest tag
         id: get_tag
         run: |
-          latest_tag=$(git describe --tags --abbrev=0 || echo "v0.0.0")
+          latest_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
           echo "latest_tag=$latest_tag" >> $GITHUB_ENV
+          echo "Latest tag: $latest_tag"
 
+      # Check if there are new commits since the last tag
+      - name: Check if there are new commits since last tag
+        id: check_commits
+        run: |
+          commit_count=$(git rev-list ${{ env.latest_tag }}..HEAD --count)
+          echo "Commits since last tag: $commit_count"
+          if [ "$commit_count" -eq 0 ]; then
+            echo "No new commits since ${{ env.latest_tag }}. Skipping release."
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      # Bump patch version only if there are new commits
       - name: Bump patch version
+        if: steps.check_commits.outputs.skip == 'false'
         id: bump_version
         run: |
           old=${{ env.latest_tag }}
@@ -39,14 +55,18 @@ jobs:
           echo "new_tag=$new_tag" >> $GITHUB_OUTPUT
           echo "New version: $new_tag"
 
+      # Create and push new tag
       - name: Create and push new tag
+        if: steps.check_commits.outputs.skip == 'false'
         run: |
-          git tag -a "${{ steps.bump_version.outputs.new_tag }}" -m 'Release "${{ steps.bump_version.outputs.new_tag }}"'
+          git tag -a "${{ steps.bump_version.outputs.new_tag }}" -m "${{ steps.bump_version.outputs.new_tag }}"
           git push origin "${{ steps.bump_version.outputs.new_tag }}"
 
+      # Create GitHub Release
       - name: Create GitHub Release
+        if: steps.check_commits.outputs.skip == 'false'
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: "${{ steps.bump_version.outputs.new_tag }}"
-          name: 'Release "${{ steps.bump_version.outputs.new_tag }}"'
+          tag_name: ${{ steps.bump_version.outputs.new_tag }}
+          name: ${{ steps.bump_version.outputs.new_tag }}
           generate_release_notes: true
