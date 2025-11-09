@@ -28,17 +28,17 @@ jobs:
         id: get_tag
         run: |
           latest_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
-          echo "latest_tag=$latest_tag" >> $GITHUB_ENV
+          echo "latest_tag=$latest_tag" >> $GITHUB_OUTPUT
           echo "Latest tag: $latest_tag"
 
       # Check if there are new commits since the last tag
       - name: Check if there are new commits since last tag
         id: check_commits
         run: |
-          commit_count=$(git rev-list ${{ env.latest_tag }}..HEAD --count)
+          commit_count=$(git rev-list ${{ steps.get_tag.outputs.latest_tag }}..HEAD --count)
           echo "Commits since last tag: $commit_count"
           if [ "$commit_count" -eq 0 ]; then
-            echo "No new commits since ${{ env.latest_tag }}. Skipping release."
+            echo "No new commits since ${{ steps.get_tag.outputs.latest_tag }}. Skipping release."
             echo "skip=true" >> $GITHUB_OUTPUT
           else
             echo "skip=false" >> $GITHUB_OUTPUT
@@ -49,7 +49,7 @@ jobs:
         if: steps.check_commits.outputs.skip == 'false'
         id: bump_version
         run: |
-          old=${{ env.latest_tag }}
+          old=${{ steps.get_tag.outputs.latest_tag }}
           IFS='.' read -r major minor patch <<<"${old#v}"
           new_tag="v$major.$minor.$((patch + 1))"
           echo "new_tag=$new_tag" >> $GITHUB_OUTPUT
