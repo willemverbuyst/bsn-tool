@@ -22,7 +22,7 @@
     "primeicons": "^7.0.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^6.0.1",
+    "@vitejs/plugin-vue": "^6.0.2",
     "@vue/test-utils": "^2.4.6",
     "cypress": "^15.6.0",
     "eslint": "^9.39.1",
