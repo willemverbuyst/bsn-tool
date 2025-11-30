@@ -27,7 +27,7 @@
     "cypress": "^15.7.0",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-vue": "^10.6.0",
+    "eslint-plugin-vue": "^10.6.2",
     "globals": "^16.5.0",
     "jsdom": "^27.2.0",
     "knip": "^5.70.2",
