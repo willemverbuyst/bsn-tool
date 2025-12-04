@@ -1,0 +1,104 @@
+name: Weekly Release & Deployment
+
+on:
+  schedule:
+    - cron: "0 8 * * 1" # Every Monday at 08:00 UTC
+  workflow_dispatch:
+
+jobs:
+  merge-and-release:
+    runs-on: ubuntu-latest
+    outputs:
+      release_url: ${{ github.server_url }}/${{ github.repository }}/releases/tag/v${{ steps.semantic_release.outputs.new_release_version }}
+      new_release_version: ${{ steps.semantic_release.outputs.new_release_version }}
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+
+      - name: Merge develop into main
+        run: |
+          git fetch origin develop
+          echo "Current branch: $(git branch --show-current)"
+          echo "Latest commit on main: $(git rev-parse HEAD)"
+          echo "Latest commit on develop: $(git rev-parse origin/develop)"
+
+          # Check if there are any differences
+          if git diff --quiet HEAD origin/develop; then
+            echo "No changes to merge from develop"
+            exit 0
+          fi
+
+          # Attempt merge
+          if git merge origin/develop --no-edit; then
+            echo "Merge successful"
+            git push origin main
+            echo "Pushed to main"
+          else
+            echo "Merge conflict detected"
+            git merge --abort
+            exit 1
+          fi
+
+      - name: Wait for merge to propagate
+        run: sleep 10
+
+      - name: Verify merge
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+          echo "Main is now at: $(git rev-parse HEAD)"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v4
+        with:
+          semantic_version: ^24
+        extra_plugins: |
+          @semantic-release/github@10.3.5
+          @semantic-release/git@10.0.1
+          @bobvanderlinden/semantic-release-pull-request-analyzer@1.0.4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Fail if no release was published
+        if: ${{ steps.semantic_release.outputs.new_release_published == 'false' }}
+        run: |
+          echo No release published
+          exit 1
+
+      - name: Build project for GitHub Pages
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./dist
+
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
