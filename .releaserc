@@ -1,0 +1,28 @@
+{
+  "branches": [
+    "main"
+  ],
+  "plugins": [
+    [
+      "@bobvanderlinden/semantic-release-pull-request-analyzer",
+      {
+        "labels": {
+          "change": "minor",
+          "feature": "minor",
+          "enhancement": "minor",
+          "fix": "patch",
+          "technical-change": "patch",
+          "dependencies": "patch"
+        }
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "successComment": false,
+        "failComment": false
+      }
+    ],
+    "@semantic-release/git"
+  ]
+}
