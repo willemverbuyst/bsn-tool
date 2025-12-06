@@ -8,4 +8,4 @@
 
 ## Checklist
 
-- [ ] Added label to PR ("fix", "change", "feature", "technical-change", "dependencies", "enhancement")
+- [ ] Added label to PR ("fix", "change", "feature", "technical-change", "dependencies", "enhancement", "docs", "tests")
