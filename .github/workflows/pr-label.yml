@@ -25,7 +25,7 @@ jobs:
         uses: actions/github-script@v8
         with:
           script: |
-            const requiredLabels = new Set(["fix", "change", "feature", "technical-change", "dependencies", "enhancement"]);
+            const requiredLabels = new Set(["fix", "change", "feature", "enhancement", "technical-change", "dependencies", "tests", "docs"]);
             const owner = context.repo.owner;
             const repo = context.repo.repo;
             if (!context.payload.pull_request || !context.payload.pull_request.number) { return; }

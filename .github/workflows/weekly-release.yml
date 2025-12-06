@@ -8,9 +8,6 @@ on:
 jobs:
   merge-and-release:
     runs-on: ubuntu-latest
-    outputs:
-      release_url: ${{ github.server_url }}/${{ github.repository }}/releases/tag/v${{ steps.semantic_release.outputs.new_release_version }}
-      new_release_version: ${{ steps.semantic_release.outputs.new_release_version }}
     permissions:
       contents: write
       issues: write
@@ -84,12 +81,6 @@ jobs:
             @bobvanderlinden/semantic-release-pull-request-analyzer@1.0.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Fail if no release was published
-        if: ${{ steps.semantic_release.outputs.new_release_published == 'false' }}
-        run: |
-          echo No release published
-          exit 1
 
       - name: Build project for GitHub Pages
         run: npm run build
