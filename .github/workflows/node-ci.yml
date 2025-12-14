@@ -27,7 +27,7 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: Cache node_modules
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: node_modules
           key: ${{ runner.os }}-${{ inputs.cache-key-prefix }}-${{ hashFiles('package-lock.json') }}
