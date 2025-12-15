@@ -1,8 +1,6 @@
-name: Release & Deployment
+name: Release & Deploy
 
 on:
-  # schedule:
-  #   - cron: "0 8 * * 1" # Every Monday at 08:00 UTC
   workflow_dispatch:
 
 jobs:
