@@ -29,7 +29,7 @@
     "jsdom": "^28.1.0",
     "knip": "^5.86.0",
     "prettier": "^3.8.1",
-    "vite": "^7.3.1",
+    "vite": "^8.0.0",
     "vite-plugin-vue-devtools": "^8.0.7",
     "vitest": "^4.0.18",
     "vue": "^3.5.30"
